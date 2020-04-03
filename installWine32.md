@@ -98,7 +98,9 @@ After accessing the chroot environment (see the previous section) the *universe*
 repository needs to be added.  The repository contains some  dependencies  which
 are necessary to install wine:
 
-    add-apt-repository universe
+    sudo apt-get install software-properties-common
+    sudo add-apt-repository universe
+    sudo apt udpate
 
 After that the wine should be able to install [following this guide][5].
 
