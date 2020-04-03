@@ -15,7 +15,7 @@ managers which can do that is dkpg supplied with  Debian  systems.   To  install
 Debian system the following commands can be used:
 
     #! /usr/bin/env zsh
-    hash -d ~ubuntu-386=/srv/chroot/ubuntu386
+    hash -d ubuntu-386=/srv/chroot/ubuntu386
     debootstrap --arch=i386 bionic ~ubuntu-386 http://archive.ubuntu.com/ubuntu/
 
 Note that the target architecture is set to be  32-bit  and  release  is  ubuntu
@@ -24,8 +24,8 @@ bionic. User can choose any other release if preferred.
 After  the  system  is  built  we  can  proceed  with  [mounting  of   necessary
 directories][1]:
 
-    mount -t proc /proc ~ubuntu-386/proc/
-    mount --bind /dev/pts ~ubuntu-386/dev/pts
+    sudo mount -t proc /proc ~ubuntu-386/proc/
+    sudo mount --bind /dev/pts ~ubuntu-386/dev/pts
 
 The *proc* mounts [process file  system][2]  necessary  for  managing  processes
 running inside the chroot environment.  The *dev/pts* is optional as it prevents
@@ -33,7 +33,7 @@ error messages when using some terminal multiplexer such as *tmux* or  *screen*.
 
 Now it is possible to access the chroot environment with the following command:
 
-    chroot ~ubuntu-386 /bin/bash
+    sudo chroot ~ubuntu-386 /bin/bash
 
 The command launches bash shell in the chroot environment as a root  user.   The
 next step should be to set-up a new user as it will enable to play  sounds  from
